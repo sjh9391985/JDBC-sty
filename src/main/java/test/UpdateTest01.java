@@ -2,23 +2,26 @@ package test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InsertTest {
+public class UpdateTest01 {
 	public static void main(String[] args) {
-		insert("홍보");
+		DeptVo vo = new DeptVo();
+		vo.setNo(4L);
+		vo.setName("기획전략실");
 		
+		Boolean result = update(vo);
+		System.out.println(result ? "성공!" : "실패");
 	}
 	
-	public static boolean insert(String name) {
+	public static Boolean update(DeptVo vo) {
 		
+
 		// TODO Auto-generated method stub
 		Connection conn = null;
 		Statement stmt = null;
 		boolean result = false;
-		
 
 		try {
 			// 1. JDBC Driver 로딩
@@ -32,13 +35,10 @@ public class InsertTest {
 			stmt = conn.createStatement();
 
 			// 4. SQL 문 실행
-			String sql = "insert" + " into dept" + " values (null,'"+name+"')";
-			
-			int count = stmt.executeUpdate(sql);
-			result = count ==1;
-			
+			String sql = "update dept" + " set name = '" + vo.getName() + "' " + "where no = "+ vo.getNo();
 
-			
+			int count = stmt.executeUpdate(sql);
+			result = count == 1;
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩 설치 실패: " + e);
@@ -61,4 +61,7 @@ public class InsertTest {
 		}
 		return result;
 	}
+	
+	
+
 }
