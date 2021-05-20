@@ -14,7 +14,7 @@ public class ConnectionTest {
 			Class.forName("org.mariadb.jdbc.Driver");
 
 			// 2. Driver Manager 커넥션 얻기
-			String url = "jdbc:mysql://192.168.80.114:3307/webdb>charset=utf8";
+			String url = "jdbc:mysql://192.168.80.114:3307/webdb?charset=utf8";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 			
 

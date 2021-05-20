@@ -8,20 +8,20 @@ public class MyDriverTest {
 		// TODO Auto-generated method stub
 		Connection conn = null;
 		try {
-			//1. JDBC Driver 로딩
+			// 1. JDBC Driver 로딩
 			Class.forName("driver.MyDriver");
-			
-			//2. 연결하기
+
+			// 2. 연결하기
 			String url = "jdbc:mydb://127.0.0.1:2202/webdb";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
-			
-			//3. 연결 성공
+
+			// 3. 연결 성공
 			System.out.println("ok: " + conn);
-			
+
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			System.out.println("error" + e);
 		} finally {
 			try {
