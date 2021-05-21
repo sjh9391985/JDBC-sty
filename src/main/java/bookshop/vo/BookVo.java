@@ -7,7 +7,6 @@ public class BookVo {
 	private Long authorNo;
 	private String authorName;
 	
-
 	public Long getNo() {
 		return no;
 	}
